@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="users" *ngIf="users.length>0">
+
+        <div class="filtr">
+            filtr: 
+            <label for="f_name">name</label>
+            <input id="f_name" type="text" [(ngModel)]="filtr.name">
+            <label for="f_city">city</label>
+            <input id="f_city" type="text" [(ngModel)]="filtr.city">
+            <button (click)="applyFiltr()">apply</button>
+            <button (click)="reset()">reset</button>
+        </div>
+
+        <div class="sort">
+            sort by:
+            <button (click)="sortByName()">name</button>
+            <button (click)="sortByCity()">city</button>
+        </div>
+
+        <div class="cart" *ngFor="let user of users">
+            <div>Name: {{user.name}}</div>
+            <div>City: {{user.address.city}}</div>
+            <div>Company: {{user.company.name}}</div>
+            <a [routerLink]="['user', user.id]">подробнее</a>
+        </div>
+    </div>
+
+    <div *ngIf="users.length==0">
+        загрузка
+    </div>
+    
+</div>
