@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
-import {Observable, Subscriber} from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Observable, Subscriber, of} from 'rxjs';
+
 
 
 export interface User {
@@ -43,10 +43,5 @@ export class UsersService {
 
   load(): Observable<any>{
     return this.http.get(this.url)
-  }
-  load_user(id:number){
-    this.http.get(this.url).subscribe(date=>{
-      console.log(date)
-    })
   }
 }
