@@ -19,13 +19,15 @@ export class ProfileComponent implements OnInit {
   profileForm = new FormGroup({
     name: new FormControl({value: null, disabled: true}, Validators.required),
     username: new FormControl({value: null, disabled: true}, Validators.required),
-    email: new FormControl({value: null, disabled: true}, Validators.required),
+    email: new FormControl({value: null, disabled: true}, 
+      [Validators.required, Validators.email]),
     street: new FormControl({value: null, disabled: true}, Validators.required),
     city: new FormControl({value: null, disabled: true}, Validators.required),
     zipcode: new FormControl({value: null, disabled: true}, Validators.required),
-    phone: new FormControl({value: null, disabled: true}, Validators.required),
+    phone: new FormControl({value: null, disabled: true},
+      [ Validators.required,]),
     website: new FormControl({value: null, disabled: true}, Validators.required),
-    comment: new FormControl({value: null, disabled: false}),
+    comment: new FormControl({value: null, disabled: true}),
   });
 
   constructor(private route: ActivatedRoute,
@@ -62,6 +64,13 @@ export class ProfileComponent implements OnInit {
       phone: user.phone,
       website: user.website
     });
+  }
+
+  change(){
+    this.profileForm.enable(this.profileForm.value)
+  }
+  save(){
+    console.log(JSON.stringify(this.profileForm.value))
   }
 
 }

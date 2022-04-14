@@ -4,10 +4,8 @@
 
         <div class="filtr">
             filtr: 
-            <label for="f_name">name</label>
-            <input id="f_name" type="text" [(ngModel)]="filtr.name">
-            <label for="f_city">city</label>
-            <input id="f_city" type="text" [(ngModel)]="filtr.city">
+            <input id="f_name" type="text" placeholder="name" [(ngModel)]="filtr.name">
+            <input id="f_city" type="text" placeholder="city" [(ngModel)]="filtr.city">
             <button (click)="applyFiltr()">apply</button>
             <button (click)="reset()">reset</button>
         </div>
@@ -19,9 +17,10 @@
         </div>
 
         <div class="cart" *ngFor="let user of users">
-            <div>Name: {{user.name}}</div>
-            <div>City: {{user.address.city}}</div>
-            <div>Company: {{user.company.name}}</div>
+            <div><span>Name:</span> {{user.name}}</div>
+            <div><span>City:</span> {{user.address.city}}</div>
+            <div><span>Company:</span> {{user.company.name}}</div>
+            <br>
             <a [routerLink]="['user', user.id]">подробнее</a>
         </div>
     </div>

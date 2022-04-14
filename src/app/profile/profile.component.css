@@ -1,0 +1,25 @@
+.container{
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.labels{
+    display: flex;
+    flex-direction: column;
+}
+.labels>label{
+    margin-top: 5px;
+}
+.inputs>input{
+    width: 100%;
+    margin-top: 5px;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+.form{
+    display: flex;
+}
